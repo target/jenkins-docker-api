@@ -1,0 +1,289 @@
+{
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "schemes": [
+    "https"
+  ],
+  "swagger": "2.0",
+  "info": {
+    "description": "Self Service API built by Target to manage Jenkins master",
+    "title": "Jenkins API",
+    "termsOfService": "http://swagger.io/terms/",
+    "version": "1.0.0"
+  },
+  "host": "yourhost.com",
+  "paths": {
+    "/health": {
+      "get": {
+        "description": "Check if the Jenkins API is available",
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "health"
+        ],
+        "operationId": "getHealth",
+        "responses": {
+          "200": {
+            "description": "Successful 'ping' of Jenkins API",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "x-expected_tps": "1",
+        "x-response_time_sla": "100ms",
+        "x-success_http_code": "200"
+      }
+    },
+    "/jenkins": {
+      "get": {
+        "description": "Get All Jenkins Masters",
+        "produces": [
+          "text/plain"
+        ],
+        "tags": [
+          "get"
+        ],
+        "operationId": "getAll",
+        "responses": {
+          "200": {
+            "description": "Successful retrieval of all active Jenkins masters",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "description": "There was a problem within the API",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "x-expected_tps": "5",
+        "x-response_time_sla": "5000ms",
+        "x-success_http_code": "200"
+      }
+    },
+    "/jenkins/admin/update_all": {
+      "put": {
+        "description": "Update All Jenkins Masters (admins only)",
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "updateAll"
+        ],
+        "operationId": "putUpdateAll",
+        "parameters": [
+          {
+            "type": "string",
+            "default": "Personal Access Token ",
+            "description": "GitHub personal access token",
+            "name": "Authorization",
+            "in": "header",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful update of all Jenkins masters",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "description": "Request to update all is unauthorized",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "description": "There was a problem within the API",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "x-expected_tps": "5",
+        "x-response_time_sla": "5000ms",
+        "x-success_http_code": "200"
+      }
+    },
+    "/jenkins/restart/:master": {
+      "put": {
+        "description": "Restart Jenkins Master",
+        "produces": [
+          "text/plain"
+        ],
+        "tags": [
+          "restart"
+        ],
+        "operationId": "putRestart",
+        "parameters": [
+          {
+            "type": "string",
+            "default": "Personal Access Token ",
+            "description": "GitHub personal access token",
+            "name": "Authorization",
+            "in": "header",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful restart of the Jenkins master",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "There is something wrong about the request",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "description": "Request to restart is unauthorized",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "Jenkins master does not exist as a running Docker service in docker swarm",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "description": "There was a problem within the API",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "x-expected_tps": "5",
+        "x-response_time_sla": "5000ms",
+        "x-success_http_code": "200"
+      }
+    },
+    "/jenkins/shutdown/:master": {
+      "put": {
+        "description": "Shutdown Jenkins Master",
+        "produces": [
+          "text/plain"
+        ],
+        "tags": [
+          "shutdown"
+        ],
+        "operationId": "putShutdown",
+        "parameters": [
+          {
+            "type": "string",
+            "default": "Personal Access Token ",
+            "description": "GitHub personal access token",
+            "name": "Authorization",
+            "in": "header",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful shutdown of the Jenkins master",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "There is something wrong about the request",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "description": "Request to shutdown is unauthorized",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "Jenkins master does not exist as a running Docker service in docker swarm",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "description": "There was a problem within the API",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "x-expected_tps": "5",
+        "x-response_time_sla": "5000ms",
+        "x-success_http_code": "200"
+      }
+    },
+    "/jenkins/update/:master": {
+      "put": {
+        "description": "Update Jenkins Master",
+        "produces": [
+          "text/plain"
+        ],
+        "tags": [
+          "update"
+        ],
+        "operationId": "putUpdate",
+        "parameters": [
+          {
+            "type": "string",
+            "default": "Personal Access Token ",
+            "description": "GitHub personal access token",
+            "name": "Authorization",
+            "in": "header",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful update of the Jenkins master",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "There is something wrong about the request",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "description": "Request to update is unauthorized",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "Jenkins master does not exist as a running Docker service in docker swarm",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "description": "There was a problem within the API",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "x-expected_tps": "5",
+        "x-response_time_sla": "5000ms",
+        "x-success_http_code": "200"
+      }
+    }
+  }
+}

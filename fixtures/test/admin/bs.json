@@ -1,0 +1,15 @@
+{
+	"ghe_key": "test_ghe_key",
+	"ghe_secret": "test_ghe_secret",
+	"port": "12345",
+	"admin_ssh_pubkey": "ssh-rsa abcdefghijklmnop jenkins@test.com",
+	"size": "small",
+	"image": "jenkins.docker.test.com/jenkins-test:v2",
+	"region": "c",
+	"log_config": {
+		"driver": "gelf",
+		"gelf-address": "udp://logstash-host.test.com:54321",
+		"tag": "eng-loadtest"
+	},
+	"env_variables": null
+}

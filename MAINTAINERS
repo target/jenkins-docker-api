@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "file_format": "This MAINTAINERS file format is described at http://pup.pt/maintainers",
+  "issues": "https://github.com/target/jenkins-docker-api/issues",
+  "people": [
+    {
+      "github": "delta592",
+      "email": "Dax.Johnson@target.com",
+      "name": "Dax Johnson"
+    },
+    {
+      "github": "slushpupie",
+      "email": "Jay.Kline@target.com",
+      "name": "Jay Kline"
+    },
+    {
+      "github": "sjqnn",
+      "email": "Sean.J.Quinn@target.com",
+      "name": "Sean Quinn"
+    },
+    {
+      "github": "JordanSussman",
+      "email": "jordan.sussman@target.com",
+      "name": "Jordan Sussman"
+    },
+    {
+      "github": "santo141",
+      "email": "raphael.santodomingo@target.com",
+      "name": "Raphael SantoDomingo"
+    }
+  ]
+}
