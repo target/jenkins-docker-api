@@ -74,6 +74,14 @@ Setting up project:
     ```
 
 1. Generate swagger spec (if necessary)
+
+    ```sh
+    # Install Swagger 2.0
+    go get -u github.com/go-swagger/go-swagger/cmd/swagger
+
+    # Generate swagger spec
+    swagger generate spec -b ./cmd/jenkins-server -m -i swagger.yml -o api-spec/jenkins-api.json
+    ```
     
 1. Update the version in `version/version.go` if applicable
 
