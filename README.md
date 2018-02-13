@@ -20,7 +20,7 @@ PUT   /api/v1/jenkins/admin/update_all # Update all Jenkins masters to the lates
 
 ### Relevant Header
 
-`-H "Authorization: token <your_token>"`
+`-H "Authorization: token <github token>"`
 
 ## Contributing / Development
 
