@@ -9,6 +9,7 @@ import (
 	"reflect"
 	"testing"
 
+	log "github.com/Sirupsen/logrus"
 	"github.com/franela/goblin"
 	"github.com/google/go-github/github"
 	"github.com/target/gelvedere/model"
@@ -16,6 +17,8 @@ import (
 )
 
 func Test_utils(t *testing.T) {
+	log.SetLevel(log.PanicLevel)
+
 	g := goblin.Goblin(t)
 	g.Describe("Tests for server/util.go", func() {
 

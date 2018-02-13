@@ -8,6 +8,7 @@ import (
 	"os"
 	"testing"
 
+	log "github.com/Sirupsen/logrus"
 	"github.com/target/jenkins-docker-api/fixtures"
 
 	"github.com/franela/goblin"
@@ -15,6 +16,8 @@ import (
 )
 
 func Test_GetAll(t *testing.T) {
+	log.SetLevel(log.PanicLevel)
+
 	gin.SetMode(gin.TestMode)
 
 	var path string
