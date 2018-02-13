@@ -74,8 +74,3 @@ Setting up project:
 1. Update the version in `version/version.go` if applicable
 
 1. Submit a PR for your changes.
-
-## Authors
-- Jordan Sussman
-- Raphael Santo Domingo
-- Sean Quinn
