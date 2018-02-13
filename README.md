@@ -1,5 +1,7 @@
 # jenkins-docker-api
 
+[![docker](https://img.shields.io/docker/automated/target/jenkins-docker-api.svg)](https://hub.docker.com/r/target/jenkins-docker-api)
+
 ## Endpoints
 
 A list of endpoints this API supports
@@ -20,26 +22,67 @@ PUT   /api/v1/jenkins/admin/update_all # Update all Jenkins masters to the lates
 
 ### Relevant Header
 
-`-H "Authorization: token <your_token>"`
+`-H "Authorization: token <github token>"`
 
-## Development
+## Contributing / Development
 
 Dependencies:
 
-1. Ensure that Docker is installed and running.
+1. Ensure that Docker is installed _and_ running.
 1. Ensure that Docker swarm is initialized: ```docker swarm init```.
 1. Ensure that [golang](https://golang.org/dl/) is installed.
 1. Ensure that [govendor](https://github.com/kardianos/govendor) is installed.
 
 Setting up project:
 
-1. Clone down the project.
+1. Clone down the project:
 
-    ```console
+    ```sh
+     # Make sure your go paths are set if they aren't already
+    export GOPATH=$HOME/go
+    export PATH=$PATH:$GOPATH/bin
+    
+     # Clone the project
     cd $GOPATH/src/github.com/target/
     git clone git@github.com:Jenkins/jenkins-docker-api.git
     cd jenkins-docker-api
     ```
-1. Make your code changes.
+    
+1. Add/update golang vendor packages:
+
+    ```sh
+    govendor fetch +outside
+    ```
+    
+1. Set environment variables:
+
+    - `GITHUB_API_URL` - your GitHub API URL
+    - `GITHUB_ADMIN_ORG` - name of your GitHub admin organization, e.g. `Jenkins`
+    - `GITHUB_ADMIN_TEAM` - name of your GitHub admin team, e.g. `Admins`
+    - `JENKINS_ENV` - your Jenkins environment, e.g. `test`, `prod`, etc.
+    - `JENKINS_IMAGE` - full path to your Jenkins Docker image, e.g. `target/jenkins-docker-master:1.0.0`
+    - `JENKINS_USER_CONFIG_PATH` - default path is `/jenkins/user-configs/`
+    - `JENKINS_ADMIN_CONFIG_PATH` - default path is `/jenkins/secret-configs/`
+    
+1. Make your code changes and ensure all tests pass
+
+    ```sh
+    # Checkout a branch for your work
+    git checkout -b name_of_your_branch
+
+    # Code away!
+    ```
+
+1. Generate swagger spec (if necessary)
+
+    ```sh
+    # Install Swagger 2.0
+    go get -u github.com/go-swagger/go-swagger/cmd/swagger
+
+    # Generate swagger spec
+    swagger generate spec -b ./cmd/jenkins-server -m -i swagger.yml -o api-spec/jenkins-api.json
+    ```
+    
 1. Update the version in `version/version.go` if applicable
-1. Commit and push your changes.
+
+1. Submit a PR for your changes.
