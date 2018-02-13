@@ -60,7 +60,7 @@ Setting up project:
     - `GITHUB_ADMIN_ORG` - name of your GitHub admin organization, e.g. `Jenkins`
     - `GITHUB_ADMIN_TEAM` - name of your GitHub admin team, e.g. `Admins`
     - `JENKINS_ENV` - your Jenkins environment, e.g. `test`, `prod`, etc.
-    - `JENKINS_IMAGE` - your Jenkins Docker image
+    - `JENKINS_IMAGE` - full path to your Jenkins Docker image, e.g. `target/jenkins-docker-master:1.0.0`
     - `JENKINS_USER_CONFIG_PATH` - default path is `/jenkins/user-configs/`
     - `JENKINS_ADMIN_CONFIG_PATH` - default path is `/jenkins/secret-configs/`
     
