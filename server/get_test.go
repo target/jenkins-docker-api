@@ -8,9 +8,9 @@ import (
 	"os"
 	"testing"
 
-	log "github.com/Sirupsen/logrus"
 	"github.com/target/jenkins-docker-api/fixtures"
 
+	log "github.com/Sirupsen/logrus"
 	"github.com/franela/goblin"
 	"github.com/gin-gonic/gin"
 )
