@@ -1,5 +1,7 @@
 # jenkins-docker-api
 
+[![docker](https://img.shields.io/docker/automated/target/jenkins-docker-api.svg)](https://hub.docker.com/r/target/jenkins-docker-api)
+
 ## Endpoints
 
 A list of endpoints this API supports
@@ -70,6 +72,8 @@ Setting up project:
 
     # Code away!
     ```
+
+1. Generate swagger spec (if necessary)
     
 1. Update the version in `version/version.go` if applicable
 
