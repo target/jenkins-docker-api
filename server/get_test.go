@@ -10,11 +10,14 @@ import (
 
 	"github.com/target/jenkins-docker-api/fixtures"
 
+	log "github.com/Sirupsen/logrus"
 	"github.com/franela/goblin"
 	"github.com/gin-gonic/gin"
 )
 
 func Test_GetAll(t *testing.T) {
+	log.SetLevel(log.PanicLevel)
+
 	gin.SetMode(gin.TestMode)
 
 	var path string
